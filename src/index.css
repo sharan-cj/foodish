@@ -5,17 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: linear-gradient(
-    45deg,
-    rgb(87, 134, 235, 0.6),
-    rgb(96, 240, 201, 0.6)
-  );
-  height: 100vh;
+
+  min-height: 100vh;
+  height: 100%;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=East+Sea+Dokdo&family=Potta+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
 * {
   font-family: "East Sea Dokdo", cursive;
   font-size: 1.3rem;
+}
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: unset;
 }

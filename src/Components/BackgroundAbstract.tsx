@@ -19,6 +19,11 @@ const Background = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  background-image: linear-gradient(
+    45deg,
+    rgb(87, 134, 235, 0.6),
+    rgb(96, 240, 201, 0.6)
+  );
 `;
 
 const Circle = styled.div`

@@ -7,6 +7,7 @@ export const Layout = styled.div`
   display: flex;
   flex-direction: column;
   max-width: 1440px;
+  margin: auto;
 `;
 
 export const Container = styled.div<{ width?: string }>`
@@ -21,7 +22,7 @@ export const Container = styled.div<{ width?: string }>`
 `;
 
 export const Input = styled.input`
-  margin: 1rem;
+  margin: 1rem auto;
   width: 600px;
   max-width: 80%;
   padding: 0.1rem 1rem;
@@ -38,4 +39,10 @@ export const Input = styled.input`
   &:focus {
     border-color: black;
   }
+`;
+
+export const Hr = styled.hr`
+  width: calc(100% - 2rem);
+  margin: 0 1rem;
+  border-color: rgb(253 253 253 / 51%);
 `;

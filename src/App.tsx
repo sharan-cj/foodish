@@ -9,7 +9,6 @@ function App() {
       <BackgroundAbstract />
       <Layout>
         <Home />
-        <Container>Hello</Container>
       </Layout>
       <Navbar />
     </>
