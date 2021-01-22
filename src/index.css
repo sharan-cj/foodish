@@ -12,10 +12,15 @@ body {
 
 @import url("https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=East+Sea+Dokdo&family=Potta+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
 
 * {
   font-family: "East Sea Dokdo", cursive;
   font-size: 1.3rem;
+}
+
+:root {
+  --text-color: #fff;
 }
 
 button {
@@ -28,4 +33,5 @@ button {
 a {
   text-decoration: none;
   color: unset;
+  cursor: pointer;
 }

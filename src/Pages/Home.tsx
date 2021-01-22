@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Input, Hr, Container } from "../Components";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { SearchInput, Hr, Container } from "../Components";
 import { Api } from "../Config";
 import axios from "axios";
 import styled from "styled-components";
 import ReactPlayer from "react-player";
+import { ApiKey } from "../Config";
+import { apiKeyContext } from "../Utils";
+
 interface ResponseData {
   name: string;
   type: string;
@@ -20,7 +23,6 @@ interface ResponseContent {
 }
 
 export const Home = () => {
-  const apiKey = `81e3a2dcfe184c749b1f5eae2208b9fc`;
   const [searchText, setSearchText] = useState("");
   const [responseData, setResponseData] = useState<ResponseData[]>();
   const [recipes, setRecipes] = useState<ResponseContent[]>();
@@ -28,17 +30,19 @@ export const Home = () => {
   const [videos, setVideos] = useState<ResponseContent[]>();
   const [view, setView] = useState<string>("recipes");
   const searchInputRef = useRef<any>(null);
+  const [apiKey] = useContext(apiKeyContext);
+
+  const key = apiKey ? apiKey : ApiKey;
 
   const HandleSearch = (e: any) => {
     if (e.keyCode === 13) {
       if (searchInputRef !== null) {
         searchInputRef.current.blur();
-        searchInputRef.current.value = "";
       }
       (async () => {
         await axios
           .get(
-            `${Api}/food/search?apiKey=${apiKey}&query=${searchText}&offset=0&number=50`
+            `${Api}/food/search?apiKey=${key}&query=${searchText}&offset=0&number=50`
           )
           .then((res) => {
             setResponseData(res.data.searchResults);
@@ -60,7 +64,7 @@ export const Home = () => {
 
   return (
     <>
-      <Input
+      <SearchInput
         name="searchBar"
         id="searchBar"
         ref={searchInputRef}
@@ -166,7 +170,7 @@ const View = styled.button<{ active?: boolean }>`
   width: 100px;
   text-align: center;
   margin: 0 1rem;
-  color: #5d5d5d;
+  color: var(--text-color);
   font-size: 1.5rem;
   border-bottom: ${(props) =>
     props.active ? "3px solid rgb(64 136 231)" : "none"};

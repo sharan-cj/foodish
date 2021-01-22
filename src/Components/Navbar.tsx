@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
 export const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const history = useHistory();
   return (
     <Nav>
-      <Logo>Foodish</Logo>
+      <Logo onClick={() => history.push("/")}>Foodish</Logo>
       <NavGroup>
-        <NavItem>Home</NavItem>
-        <NavItem>About</NavItem>
-        <NavItem>Contact</NavItem>
-        <NavItem>Developer</NavItem>
+        <NavItem onClick={() => history.push("/")}>Home</NavItem>
+        <NavItem onClick={() => history.push("/trivia")}>Trivia</NavItem>
+        <NavItem onClick={() => history.push("/jokes")}>Jokes</NavItem>
+        <NavItem onClick={() => history.push("/dev")}>Developer</NavItem>
         {!showMenu && (
           <MenuBtn
             onClick={() => {
@@ -31,10 +33,38 @@ export const Navbar = () => {
           >
             X
           </MenuBtn>
-          <MenuItem>Home</MenuItem>
-          <MenuItem>About</MenuItem>
-          <MenuItem>Contact</MenuItem>
-          <MenuItem>Developer</MenuItem>
+          <MenuItem
+            onClick={() => {
+              history.push("/");
+              setShowMenu(false);
+            }}
+          >
+            Home
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              history.push("/trivia");
+              setShowMenu(false);
+            }}
+          >
+            Trivia
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              history.push("/jokes");
+              setShowMenu(false);
+            }}
+          >
+            Jokes
+          </MenuItem>
+          <MenuItem
+            onClick={() => {
+              history.push("/dev");
+              setShowMenu(false);
+            }}
+          >
+            Developer
+          </MenuItem>
         </Menu>
       )}
     </Nav>
@@ -43,6 +73,7 @@ export const Navbar = () => {
 
 const Nav = styled.div`
   height: 70px;
+  z-index: 2000;
   width: calc(100% - 2rem);
   padding: 0 1rem;
   display: flex;
@@ -56,7 +87,7 @@ const Nav = styled.div`
   backdrop-filter: blur(5px);
 `;
 
-const MenuItem = styled.div`
+const MenuItem = styled.a`
   marin: 1rem;
   color: white;
 `;
@@ -94,6 +125,7 @@ const Logo = styled.div`
   font-family: "Potta One", cursive;
   color: #fff;
   font-size: 2rem;
+  cursor: default;
 `;
 
 const NavGroup = styled.div`
@@ -104,7 +136,7 @@ const NavGroup = styled.div`
   color: #fff;
 `;
 
-const NavItem = styled.div`
+const NavItem = styled.a`
   margin: 0.5rem 1rem;
   font-weight: 500;
   @media (max-width: 800px) {

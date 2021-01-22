@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import bg from "../Assets/bg2.jpg";
 
 export const BackgroundAbstract = () => {
   return (
     <Background>
-      <CircleM />
-      <CircleS />
-      <CircleL />
+      {/* <CircleM />
+      <CircleS /> */}
+      {/* <CircleL /> */}
     </Background>
   );
 };
@@ -19,11 +20,19 @@ const Background = styled.div`
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  background-size: cover;
   background-image: linear-gradient(
-    45deg,
-    rgb(87, 134, 235, 0.6),
-    rgb(96, 240, 201, 0.6)
-  );
+      45deg,
+      rgb(87, 134, 235, 0.6),
+      rgb(96, 240, 201, 0.6)
+    ),
+    url(${bg});
+  background-image: linear-gradient(
+      45deg,
+      rgb(87 134 235 / 0.4),
+      rgb(143 143 143 / 40%)
+    ),
+    url(${bg});
 `;
 
 const Circle = styled.div`

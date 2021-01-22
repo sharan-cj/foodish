@@ -13,7 +13,7 @@ export const Layout = styled.div`
 export const Container = styled.div<{ width?: string }>`
   width: ${(props) => props.width};
   padding: 1rem;
-  margin: 1rem;
+  margin: 1rem auto;
   background: rgb(164 164 164 / 25%);
   border: 1px solid #fdfdfd73;
   -webkit-backdrop-filter: blur(12px);
@@ -21,7 +21,7 @@ export const Container = styled.div<{ width?: string }>`
   box-shadow: 2px 4px 9px 1px rgb(0 0 0 / 17%);
 `;
 
-export const Input = styled.input`
+export const SearchInput = styled.input`
   margin: 1rem auto;
   width: 600px;
   max-width: 80%;
@@ -36,8 +36,35 @@ export const Input = styled.input`
   backdrop-filter: blur(12px);
   box-shadow: 2px 4px 9px 1px rgb(0 0 0 / 17%);
   outline: none;
+  color: var(--text-color);
   &:focus {
     border-color: black;
+  }
+
+  &::-webkit-input-placeholder {
+    color: #000;
+  }
+`;
+
+export const Input = styled.input`
+  margin: 1rem;
+  width: 600px;
+  max-width: 80%;
+  padding: 0.1rem 1rem;
+  border-radius: 20px;
+  background: rgb(164 164 164 / 25%);
+  border: 1px solid #fdfdfd73;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 2px 4px 9px 1px rgb(0 0 0 / 17%);
+  outline: none;
+  color: var(--text-color);
+  &:focus {
+    border-color: black;
+  }
+
+  &::-webkit-input-placeholder {
+    color: #000;
   }
 `;
 
