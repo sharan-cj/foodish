@@ -24,6 +24,7 @@ export const Dev = () => {
         </Container>
       )}
       <Container width="300px">
+        Contact:
         <Link target="_blank" href="https://www.linkedin.com/in/sharan-cj/">
           <SiLinkedin /> /sharan-cj
         </Link>

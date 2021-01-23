@@ -12,6 +12,7 @@ export const Layout = styled.div`
 
 export const Container = styled.div<{ width?: string }>`
   width: ${(props) => props.width};
+  max-width: 90%;
   padding: 1rem;
   margin: 1rem auto;
   background: rgb(164 164 164 / 25%);

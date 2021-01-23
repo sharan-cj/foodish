@@ -91,7 +91,11 @@ export const Home = () => {
             recipes.length >= 1 &&
             recipes.map((recipes) => {
               return (
-                <Container style={{ padding: ".5rem" }} width="600px">
+                <Container
+                  style={{ padding: ".5rem" }}
+                  width="600px"
+                  key={recipes.link}
+                >
                   <Recipe href={recipes.link} target="_blank">
                     <RecipeName>{recipes.name}</RecipeName>
                     <div style={{ display: "flex", flexFlow: "row wrap" }}>
@@ -118,7 +122,11 @@ export const Home = () => {
             articles.length >= 1 &&
             articles.map((article) => {
               return (
-                <Container style={{ padding: ".3rem" }} width="300px">
+                <Container
+                  style={{ padding: ".3rem" }}
+                  width="300px"
+                  key={article.link}
+                >
                   <Article href={article.link} target="_blank">
                     <Image src={article.image} />
                     <ArticleName>{article.name}</ArticleName>
@@ -137,16 +145,13 @@ export const Home = () => {
                 return;
               }
               return (
-                <Container style={{ padding: ".3rem" }} width="1000px">
+                <Container
+                  style={{ padding: ".3rem" }}
+                  width="1000px"
+                  key={video.link}
+                >
                   <VideoName>{video.name}</VideoName>
-                  {video.content && (
-                    <VideoContent>
-                      {video.content.replace(
-                        /<([^>]+?)([^>]*?)>(.*?)<\/\1>/gi,
-                        ""
-                      )}
-                    </VideoContent>
-                  )}
+
                   <Video>
                     <ReactPlayer url={video.link} width={"100%"} />
                   </Video>
@@ -187,6 +192,10 @@ const Article = styled.a``;
 const Image = styled.img`
   height: 200px;
   width: 300px;
+
+  @media (max-width: 660px) {
+    width: 100%;
+  }
 `;
 
 const ArticleName = styled.div`
@@ -202,9 +211,9 @@ const RecipeContent = styled.div`
   overflow: hidden;
   letter-spacing: 0.5px;
   text-align: justify;
-  @media (max-width: 500px) {
+  @media (max-width: 660px) {
     margin: 10px 0 0 0;
-    max-width: 300px;
+    max-width: 100%;
   }
 `;
 
@@ -219,13 +228,14 @@ const Video = styled.div`
   height: auto;
   margin: 0.5rem auto;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     max-width: 350px;
   }
 `;
 
 const VideoName = styled.div`
 font-size = 1.6rem;
+margin-left: 1rem;
 `;
 
 const VideoContent = styled.div`
@@ -235,7 +245,7 @@ const VideoContent = styled.div`
   overflow: hidden;
   letter-spacing: 0.5px;
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     max-width: 350px;
   }
 `;
